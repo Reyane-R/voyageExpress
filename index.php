@@ -93,6 +93,49 @@ include "include.php";
                 </div>
               </div>
             </li>
+
+            <li>
+              <div class="container center">
+                <a href="#register" class="btn btn-large teal modal-trigger">Register</a>
+              </div>
+              
+              <div id="register" class="modal teal-text">
+                <h5 class="modal-close">&#10005;</h5>
+                <div class="modal-content center">
+                  <h4>Register Form</h4>
+                  <br>
+              
+                  <form action="#">
+              
+
+                    <div class="input-field">
+                      <i class="material-icons prefix">person</i>
+                      <input type="text" id="name2">
+                      <label for="name2">Username</label>
+                    </div>
+                    <br>
+                    <div class="input-field">
+                      <i class="material-icons prefix">email</i>
+                      <input type="email" id="user_email">
+                      <label for="user_email">Email</label>
+                    </div>
+                    <br>
+              
+                    <div class="input-field">
+                      <i class="material-icons prefix">lock</i>
+                      <input type="password" id="pass2">
+                      <label for="pass2">Password</label>
+                    </div>
+                    <br>
+              
+                    <br>
+                    
+                    <input type="submit" value="Register" class="btn btn-large">
+                    
+                  </form>
+                </div>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -406,6 +449,7 @@ include "include.php";
     // ScrollSpy
     const ss = document.querySelectorAll('.scrollspy');
     M.ScrollSpy.init(ss, {});
+
 
   </script>
 </body>
