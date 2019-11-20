@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 /* LA FONCTION DE CONNEXION */
 
@@ -11,32 +12,43 @@ function connect_account(){
 	if(isset($_POST['connect_account'])){
 		$login = htmlentities(trim($_POST['login']));
 		$password = htmlentities(trim($_POST['password']));
-		$typeaccount = $_POST['typeaccount'];
+		$typeaccount = $_POST['type'];
 
-		if($login!="" && $password!=""){
+/* Connexion utilisateur */
+		if(($login!="" && $password!="") && ($typeaccount == 'utilisateur')) {
 
 			$query = " SELECT * FROM utilisateur WHERE login = '$login' AND password = '$password'AND type_account = '$typeaccount' ";
 			$results = pg_query($query);
+			/* Pour les utilisateurs */
+			if ((pg_affected_rows($results) == 1)) {
+                  $_SESSION['login']=$login;
+                  header("Location:pageUser.php");
+                }
 
-			if((pg_affected_rows($results) == 1) && ($typeaccount = 'utilisateur')) {
-				$_SESSION('login') = $login;
-				header("Location:pageUser.php");
-			}
-			elseif((pg_affected_rows($results) == 1) && ($typeaccount = 'administrateur')){
-				$_SESSION('login') == $login;
-				header("Location:pageAdmin.php");
-			}
+                else $return = 'Echec de la connexion, login , mot de passe ou type de compte incorrect.' .pg_last_error();
+            }
+            else $return = 'Veuillez remplir les champs requis.';
+/* Connexion administrateur */
 
-			else $return = 'Echec de la connexion, login ou mot de passe incorrect.' .pg_last_error();
-		}
+         	if(($login!="" && $password!="") && ($typeaccount == 'administrateur')){
+         	$query = " SELECT * FROM utilisateur WHERE login = '$login' AND password = '$password'AND type_account = '$typeaccount' ";
+			$results = pg_query($query);
+			if ((pg_affected_rows($results) == 1)) {
+                  $_SESSION['login']=$login;
+                  header("Location:pageAdmin.php");
+                }
 
-		else $return = 'Veuillez remplir correctement les champs requis.' ;
+                else $return = 'Echec de la connexion, login , mot de passe ou type de compte incorrect.' .pg_last_error();
+            }
+            else $return = 'Veuillez remplir les champs requis.';
 
+         
 	}
 
 	$return = '<p style="color: red;">' .$return. '</p>';
     return $return;
 }
+
 
 /* LA FONCTION DE CREATION D'UN COMPTE */
 
@@ -102,6 +114,40 @@ function add_country(){
 }
 
 /*HEBERGEMENTS*/
+
+function add_hebergement(){
+	$return = null;
+	if(isset($_POST['add_hebergement'])){
+		$hebergement_name = $_POST['name'];
+		$type_hebergement = $_POST['type'];
+		$city_hebergement = $_POST['city'];
+		$adress_hebergement = $_POST['adress'];
+		$average_price = $_POST['price'];
+
+		if($hebergement_name != "" && $type_hebergement != "" && $city_hebergement !="" && $adress_hebergement !="" && $average_price !=""){
+
+			$query = " INSERT INTO hebergement (hebergement_name, type_hebergement, city_hebergement, adress_hebergement, average_price) VALUES ('$hebergement_name', $type_hebergement', $city_hebergement', '$adress_hebergement', '$average_price')";
+
+			$results = pg_query($query);
+			if (pg_affected_rows($results) == 1) 
+				 $return = 'Création de l hébergement réussie.' ;
+            else
+                 $return = 'Erreur lors de la création de l hébergement.' .pg_last_error();
+        } 
+        else {
+              $return = 'Veuillez remplir les champs requis.';
+        }
+    }
+    $return = '<p style="color: red;">' .$return. '</p>';
+    return $return;
+              
+}
+			
+
+
+
+
+
 
 
 
