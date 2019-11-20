@@ -10,8 +10,9 @@ include "include.php";
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="voyageExpress/css/main.css">
   <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
     crossorigin="anonymous"></script>
   <!--Let browser know website is optimized for mobile-->
@@ -48,7 +49,49 @@ include "include.php";
               <a href="#contact">Contact</a>
             </li>
             <li>
-              <a href="login.html">Login</a>
+              <div class="container center">
+                <a href="#login" class="btn btn-large teal modal-trigger">Login</a>
+              </div>
+              
+              <div id="login" class="modal teal-text">
+                <h5 class="modal-close">&#10005;</h5>
+                <div class="modal-content center">
+                  <h4>Login Form</h4>
+                  <br>
+              
+                  <form action="#">
+              
+                    <div class="input-field">
+                      <i class="material-icons prefix">person</i>
+                      <input type="text" id="name">
+                      <label for="name">Username</label>
+                    </div>
+                    <br>
+              
+                    <div class="input-field">
+                      <i class="material-icons prefix">lock</i>
+                      <input type="password" id="pass">
+                      <label for="pass">Password</label>
+                    </div>
+                    <br>
+              
+                    <div class="left" style="margin-left:20px;">
+                    <div class="input-field col s12">
+                          <select>
+                            <option value="" disabled selected>Account Type</option>
+                            <option value="1">Admin</option>
+                            <option value="2">Utilisateur</option>
+                          </select>
+                        </div>
+
+                    </div>
+                    <br>
+                    
+                    <input type="submit" value="Login" class="btn btn-large">
+                    
+                  </form>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -156,7 +199,7 @@ include "include.php";
         <div class="col s12 m4">
           <div class="card">
             <div class="card-image">
-              <img src="img/architecture-big-ben-bridge-buildings-262413.jpg" alt="">
+              <img src=voyageExpress/img/architecture-big-ben-bridge-buildings-262413.jpg" alt="">
               <span class="card-title">London</span>
             </div>
             <div class="card-content">
@@ -167,7 +210,7 @@ include "include.php";
         <div class="col s12 m4">
           <div class="card">
             <div class="card-image">
-              <img src="img/photo-of-a-building-1553309.jpg" alt="">
+              <img src="voyageExpress/img/photo-of-a-building-1553309.jpg" alt="">
               <span class="card-title">Belgique</span>
             </div>
             <div class="card-content">
@@ -178,7 +221,7 @@ include "include.php";
         <div class="col s12 m4">
           <div class="card">
             <div class="card-image">
-              <img src="img/saint-basil-s-cathedral-753339.jpg" alt="">
+              <img src="voyageExpress/img/saint-basil-s-cathedral-753339.jpg" alt="">
               <span class="card-title">Moscou</span>
             </div>
             <div class="card-content">
@@ -321,6 +364,14 @@ include "include.php";
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
   <script>
+    //popup login form
+    $(document).ready(function(){
+  		$('.modal').modal();
+ });
+ //Select
+ $(document).ready(function(){
+    $('select').formSelect();
+  });
     // Sidenav
     const sideNav = document.querySelector('.sidenav');
     M.Sidenav.init(sideNav, {});

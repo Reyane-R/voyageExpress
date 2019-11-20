@@ -8,3 +8,23 @@
 .section-follow .fa-4x {
   margin: 5px 10px;
 }
+
+a.btn{
+  margin-top: 30%;
+}
+.modal{
+ max-height:100%;
+ overflow:hidden;
+}
+
+input[type="submit"]{
+  width: 100%;
+  margin-top: 50px;
+}
+.modal-close{
+  position: absolute;
+  top:10px;
+  right:10px;
+  padding:0;
+  margin:0;
+}
