@@ -1,5 +1,7 @@
 <?php
 include "include.php";
+include "fonctions.php";
+
 
 ?>
 
@@ -54,42 +56,44 @@ include "include.php";
               </div>
               
               <div id="login" class="modal teal-text">
-                <h5 class="modal-close">&#10005;</h5>
+                <!-- <h5 class="modal-close">&#10005;</h5> -->
                 <div class="modal-content center">
                   <h4>Login Form</h4>
                   <br>
               
-                  <form action="#">
+                  <form  method="post">
               
                     <div class="input-field">
                       <i class="material-icons prefix">person</i>
-                      <input type="text" id="name">
+                      <input type="text" id="name" name="login">
                       <label for="name">Username</label>
                     </div>
                     <br>
               
                     <div class="input-field">
                       <i class="material-icons prefix">lock</i>
-                      <input type="password" id="pass">
+                      <input type="password" id="pass" name="password">
                       <label for="pass">Password</label>
                     </div>
                     <br>
               
                     <div class="left" style="margin-left:20px;">
                     <div class="input-field col s12">
-                          <select>
+                          <select name="type">
                             <option value="" disabled selected>Account Type</option>
-                            <option value="1">Admin</option>
-                            <option value="2">Utilisateur</option>
+                            <option value="administrateur">Administrateur</option>
+                            <option value="utilisateur">Utilisateur</option>
                           </select>
-                        </div>
-
+                          </div>
                     </div>
                     <br>
                     
-                    <input type="submit" value="Login" class="btn btn-large">
+                    <input type="submit" value="Login" name="connect_account" class="btn btn-large modal-trigger">
                     
                   </form>
+                   <?php 
+                    echo connect_account()
+                    ?>
                 </div>
               </div>
             </li>
@@ -110,27 +114,30 @@ include "include.php";
 
                     <div class="input-field">
                       <i class="material-icons prefix">person</i>
-                      <input type="text" id="name2">
+                      <input type="text" id="name2" name="login">
                       <label for="name2">Username</label>
                     </div>
                     <br>
                     <div class="input-field">
                       <i class="material-icons prefix">email</i>
-                      <input type="email" id="user_email">
+                      <input type="email" id="user_email" name="email">
                       <label for="user_email">Email</label>
                     </div>
                     <br>
               
                     <div class="input-field">
                       <i class="material-icons prefix">lock</i>
-                      <input type="password" id="pass2">
+                      <input type="password" id="pass2" name="password">
                       <label for="pass2">Password</label>
                     </div>
                     <br>
               
                     <br>
                     
-                    <input type="submit" value="Register" class="btn btn-large">
+                    <input type="submit" value="Register" name="add_account" class="btn btn-large">
+                    <?php
+                      echo add_account();
+                    ?>
                     
                   </form>
                 </div>
@@ -242,7 +249,7 @@ include "include.php";
         <div class="col s12 m4">
           <div class="card">
             <div class="card-image">
-              <img src=voyageExpress/img/architecture-big-ben-bridge-buildings-262413.jpg" alt="">
+              <img src="voyageExpress/img/architecture-big-ben-bridge-buildings-262413.jpg" alt="">
               <span class="card-title">London</span>
             </div>
             <div class="card-content">
@@ -409,7 +416,7 @@ include "include.php";
   <script>
     //popup login form
     $(document).ready(function(){
-  		$('.modal').modal();
+      $('.modal').modal();
  });
  //Select
  $(document).ready(function(){
