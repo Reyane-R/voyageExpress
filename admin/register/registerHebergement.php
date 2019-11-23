@@ -1,6 +1,8 @@
 <?php
 include('includes/header.php'); 
 include('includes/navbar.php'); 
+include('../../fonctions.php');
+include('../../include.php');
 ?>
 
 
@@ -13,7 +15,7 @@ include('includes/navbar.php');
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="code.php" method="POST">
+      <form action="registerHebergement.php" method="POST">
 
         <div class="modal-body">
 
@@ -41,8 +43,17 @@ include('includes/navbar.php');
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="registerbtn" class="btn btn-primary">Save</button>
+            <button type="submit" name="add_hebergement" class="btn btn-primary">Save</button>
         </div>
+
+        <?php 
+        echo add_hebergement();
+
+
+        $query = 'SELECT type_hebergement FROM hebergement';
+
+
+        echo display_table_query($query); ?>
       </form>
 
     </div>

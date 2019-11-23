@@ -1,6 +1,8 @@
 <?php
-include('includes/header.php'); 
-include('includes/navbar.php'); 
+include('../../includes/header.php'); 
+include('../../includes/navbar.php'); 
+include('../../fonctions.php');
+include('../../include.php');
 ?>
 
 
@@ -13,7 +15,7 @@ include('includes/navbar.php');
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="code.php" method="POST">
+      <form action="registerActivite.php" method="POST">
 
         <div class="modal-body">
 
@@ -23,26 +25,38 @@ include('includes/navbar.php');
             </div>
             <div class="form-group">
                 <label>type_activite</label>
-                <input type="text" name="type_activite" class="form-control" placeholder="Enter type_activite">
+                 <select name="type_activite" class="form-control" placeholder="Entrez une activité">
+                                                    <option value="musee">musée</option>
+                                                    <option value="parc d attraction">parc d'attraction</option>
+                                                    <option value="detente">détente</option>
+                                                    <option value="bien-être">bien-être</option>
+                                                    <option value="sport">sport</option>
+                                                    <option value="reflexion">reflexion</option>
+                                                    </select></li>
             </div>
+
             <div class="form-group">
                 <label> adress_activite </label>
                 <input type="text" name="adress_activite" class="form-control" placeholder="Enter adress_activite">
             </div>
+
             <div class="form-group">
                 <label>city_activite</label>
                 <input type="text" name="city_activite" class="form-control" placeholder="Enter city_activite">
             </div>
+
             <div class="form-group">
                 <label> price_activite </label>
                 <input type="text" name="price_activite" class="form-control" placeholder="Enter price_activite">
             </div>
+
         
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="registerbtn" class="btn btn-primary">Save</button>
+            <button type="submit" name="create_activite" class="btn btn-primary">Save</button>
         </div>
+        <?php echo add_activite(); ?>
       </form>
 
     </div>
@@ -109,6 +123,6 @@ include('includes/navbar.php');
 <!-- /.container-fluid -->
 
 <?php
-include('includes/scripts.php');
-include('includes/footer.php');
+/* include('../../includes/scripts.php'); */
+include('../../includes/footer.php');
 ?>
