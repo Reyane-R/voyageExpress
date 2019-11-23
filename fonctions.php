@@ -22,7 +22,7 @@ function connect_account(){
 			/* Pour les utilisateurs */
 			if ((pg_affected_rows($results) == 1)) {
                   $_SESSION['login']=$login;
-                  header("Location:pageUser.php");
+                  header("Location:user/user.php");
                 }
 
                 else $return = 'Echec de la connexion, login , mot de passe ou type de compte incorrect.' .pg_last_error();
@@ -35,7 +35,7 @@ function connect_account(){
 			$results = pg_query($query);
 			if ((pg_affected_rows($results) == 1)) {
                   $_SESSION['login']=$login;
-                  header("Location:pageAdmin.php");
+                  header("Location:admin/admin.php");
                 }
 
                 else $return = 'Echec de la connexion, login , mot de passe ou type de compte incorrect.' .pg_last_error();
@@ -385,4 +385,226 @@ function display_table_query($query, $flag=0){
             return $char;
         }
 
+
+// FONCTION DE CREATION //
+
+
+    /*PAYS*/
+
+    function create_pays(){
+          $return = null;
+            if (isset($_POST['create_pays'])) {
+              $nom_pays = $_POST['name'];
+              $time_fly = $_POST['time'];
+              $average_price = $_POST['price'];
+              $vaccin_required = $_POST['vaccin'];
+              $visa_required = $_POST['visa'];
+              if($nom_pays !="" && $time_fly !="" && $average_price!="" && $vaccin_required!="" && $visa_required!="") {
+                $query = "INSERT INTO pays_destination (name_country, time_fly, average_price, visa_required, vaccin_required) VALUES ('$nom_pays', '$time_fly', '$average_price', '$visa_required', '$vaccin_required')";
+                $results = pg_query($query);
+                if (pg_affected_rows($results) == 1) 
+                  $return = 'Création du pays réussie.' ;
+                  else
+                    $return = 'Erreur lors de la création du pays.' .pg_last_error();
+                
+                } else {
+                  $return = 'Veuillez remplir les champs requis.';
+                }
+              }
+              $return = '<p style="color: red;">' .$return. '</p>';
+              return $return;
+              
+        }
+
+    /* ACTIVITE */
+    function create_activite(){
+          $return = null;
+            if (isset($_POST['create_activite'])) {
+              $name_activite = $_POST['name'];
+              $type_activite = $_POST['type'];
+              $adress_activite = $_POST['where'];
+              $city_activite = $_POST['city'];
+              $price_activite = $_POST['price'];
+              if($name_activite !="" && $type_activite !="" && $adress_activite !="" && $city_activite !="" && $price_activite !="") {
+                $query = "INSERT INTO activite (name_activite, type_activite, adress_activite, city_activite, price_activite) VALUES ('$name_activite', '$type_activite', '$adress_activite', '$city_activite', '$price_activite')";
+                $results = pg_query($query);
+                if (pg_affected_rows($results) == 1) 
+                  $return = 'Création de l activité réussie.' ;
+                  else
+                    $return = 'Erreur lors de la création de l activité.' .pg_last_error();
+                
+                } else {
+                  $return = 'Veuillez remplir les champs requis.';
+                }
+              }
+              $return = '<p style="color: red;">' .$return. '</p>';
+              return $return;
+              
+        }
+
+    /* LOCOMOTION */
+    function create_locomotion(){
+          $return = null;
+            if (isset($_POST['create_locomotion'])) {
+              $locomotion_name = $_POST['name'];
+              $type_locomotion = $_POST['type'];
+              $price_locomotion = $_POST['price'];
+              $horaire_locomotion = $_POST['time'];
+              if($locomotion_name !="" && $type_locomotion !="") {
+                $query = "INSERT INTO locomotion (locomotion_name, type_locomotion, price_locomotion, horaire_locomotion) VALUES ('$locomotion_name', '$type_locomotion', '$price_locomotion', '$horaire_locomotion')";
+                $results = pg_query($query);
+                if (pg_affected_rows($results) == 1) 
+                  $return = 'Création du moyen de locomotion réussie.' ;
+                  else
+                    $return = 'Erreur lors de la création du moyen de locomotion.' .pg_last_error();
+                
+                } else {
+                  $return = 'Veuillez remplir les champs requis.';
+                }
+              }
+              $return = '<p style="color: red;">' .$return. '</p>';
+              return $return;
+              
+        }
+
+  /* POINT D'INTERET */
+
+  function create_interet(){
+          $return = null;
+            if (isset($_POST['create_interet'])) {
+              $name_interet = $_POST['name'];
+              $type_interet = $_POST['type'];
+              $telephone = $_POST['telephone'];
+              $adress_interet = $_POST['where'];
+              $time_open = $_POST['time'];
+              $city_interet = $_POST['city'];
+
+              if($name_interet !="" && $type_interet !="" && $city_interet !="") {
+                $query = "INSERT INTO interet (name_interet, type_interet, telephone, adress_interet, time_open, city_interet) VALUES ('$name_interet', '$type_interet', '$telephone', '$adress_interet', '$time_open', '$city_interet')";
+                $results = pg_query($query);
+                if (pg_affected_rows($results) == 1) 
+                  $return = 'Création du point d intérêt réussie.' ;
+                  else
+                    $return = 'Erreur lors de la création du point d intérêt.' .pg_last_error();
+                
+                } else {
+                  $return = 'Veuillez remplir les champs requis.';
+                }
+              }
+              $return = '<p style="color: red;">' .$return. '</p>';
+              return $return;
+              
+        }
+
+  /* HEBERGEMENT */
+
+  function create_hebergement(){
+          $return = null;
+            if (isset($_POST['create_hebergement'])) {
+              $hebergement_name = $_POST['name'];
+              $type_hebergement = $_POST['type'];
+              $city_hebergement = $_POST['city'];
+              $adress_hebergement = $_POST['where'];
+              $average_price = $_POST['price'];
+
+              if($hebergement_name !="" && $type_hebergement !="" && $city_hebergement !="" && $average_price !="") {
+                $query = "INSERT INTO interet (hebergement_name, type_hebergement, city_hebergement, adress_hebergement, average_price) VALUES ('$hebergement_name', '$type_hebergement', '$city_hebergement', '$adress_hebergement', '$average_price')";
+                $results = pg_query($query);
+                if (pg_affected_rows($results) == 1) 
+                  $return = 'Création de l hebergement réussie.' ;
+                  else
+                    $return = 'Erreur lors de la création de l hebergement.' .pg_last_error();
+                
+                } else {
+                  $return = 'Veuillez remplir les champs requis.';
+                }
+              }
+              $return = '<p style="color: red;">' .$return. '</p>';
+              return $return;
+              
+        }
+
+  /* METEO */
+
+  function create_meteo(){
+          $return = null;
+            if (isset($_POST['create_meteo'])) {
+              $city_meteo = $_POST['city'];
+              $temps_meteo = $_POST['temps'];
+              $temperature = $_POST['temperature'];
+
+              if($city_meteo !="" && $temperature !="") {
+                $query = "INSERT INTO interet (city_meteo, temps_meteo, temperature) VALUES ('$city_meteo', '$temps_meteo', '$temperature')";
+                $results = pg_query($query);
+                if (pg_affected_rows($results) == 1) 
+                  $return = 'Création de la meteo réussie.' ;
+                  else
+                    $return = 'Erreur lors de la création de la meteo.' .pg_last_error();
+                
+                } else {
+                  $return = 'Veuillez remplir les champs requis.';
+                }
+              }
+              $return = '<p style="color: red;">' .$return. '</p>';
+              return $return;
+              
+        }
+
+  /* PRIX */
+
+  function create_price(){
+          $return = null;
+            if (isset($_POST['create_price'])) {
+              $name_stuff = $_POST['name'];
+              $type_stuff = $_POST['type'];
+              $price_stuff = $_POST['price'];
+
+              if($name_stuff !="" && $type_stuff !="" && $price_stuff !="") {
+                $query = "INSERT INTO price (name_stuff, type_stuff, price_stuff) VALUES ('$name_stuff', '$type_stuff', '$price_stuff')";
+                $results = pg_query($query);
+                if (pg_affected_rows($results) == 1) 
+                  $return = 'Création du nouveau prix réussi.' ;
+                  else
+                    $return = 'Erreur lors de la création du prix.' .pg_last_error();
+                
+                } else {
+                  $return = 'Veuillez remplir les champs requis.';
+                }
+              }
+              $return = '<p style="color: red;">' .$return. '</p>';
+              return $return;
+              
+        }
+
+/* UTILISATEUR*/
+
+function create_user(){
+          $return = null;
+            if (isset($_POST['create_user'])) {
+              $login = $_POST['login'];
+              $password = $_POST['password'];
+              $typeaccount = $_POST['type'];
+              $email = $_POST['mail'];
+
+              if($login !="" && $password !="" && $typeaccount !="" && $email != "") {
+                $query = "INSERT INTO utilisateur (login, password, type_account, email) VALUES ('$login', '$password', '$typeaccount', '$email')";
+                $results = pg_query($query);
+                if (pg_affected_rows($results) == 1) 
+                  $return = 'Création d un nouvel utilisateur réussie.' ;
+                  else
+                    $return = 'Erreur lors d un nouvel utilisateur.' .pg_last_error();
+                
+                } else {
+                  $return = 'Veuillez remplir les champs requis.';
+                }
+              }
+              $return = '<p style="color: red;">' .$return. '</p>';
+              return $return;
+              
+        }
+
+
+
 ?>
+
+/* 
