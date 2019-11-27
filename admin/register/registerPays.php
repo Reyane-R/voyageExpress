@@ -1,6 +1,8 @@
 <?php
-include('includes/header.php'); 
-include('includes/navbar.php'); 
+include('../../includes/header.php'); 
+include('../../includes/navbar.php'); 
+include('../../fonctions.php');
+include('../../include.php');
 ?>
 
 
@@ -8,12 +10,12 @@ include('includes/navbar.php');
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Pays</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Activite</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="code.php" method="POST">
+      <form action="registerPays.php" method="POST">
 
         <div class="modal-body">
 
@@ -25,24 +27,35 @@ include('includes/navbar.php');
                 <label>time_fly</label>
                 <input type="text" name="time_fly" class="form-control" placeholder="Enter time_fly">
             </div>
+
             <div class="form-group">
-                <label>average_price</label>
+                <label> average_price </label>
                 <input type="text" name="average_price" class="form-control" placeholder="Enter average_price">
             </div>
+
             <div class="form-group">
                 <label>visa_required</label>
-                <input type="text" name="visa_required" class="form-control" placeholder="visa_required">
+                <select name="visa_required" class="form-control" placeholder="">
+                                                    <option value="true">oui</option>
+                                                    <option value="false">non</option>
+                                                    </select>
             </div>
+
             <div class="form-group">
-                <label>vaccin_required</label>
-                <input type="text" name="vaccin_required" class="form-control" placeholder="vaccin_required">
+                <label> vaccin_required </label>
+                <select name="vaccin_required" class="form-control" placeholder="">
+                                                    <option value="true">oui</option>
+                                                    <option value="false">non</option>
+                                                    </select>
             </div>
+
         
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="registerbtn" class="btn btn-primary">Save</button>
+            <button type="submit" name="add_country" class="btn btn-primary">Save</button>
         </div>
+        <?php echo add_country(); ?>
       </form>
 
     </div>
@@ -55,9 +68,9 @@ include('includes/navbar.php');
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Pays
+    <h6 class="m-0 font-weight-bold text-primary">Admin Activite
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
-              Add Pays
+              Add Activite
             </button>
     </h6>
   </div>
@@ -109,6 +122,6 @@ include('includes/navbar.php');
 <!-- /.container-fluid -->
 
 <?php
-include('includes/scripts.php');
-include('includes/footer.php');
+/* include('../../includes/scripts.php'); */
+include('../../includes/footer.php');
 ?>

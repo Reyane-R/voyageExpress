@@ -32,7 +32,7 @@ include('../../include.php');
                                                     <option value="bien-être">bien-être</option>
                                                     <option value="sport">sport</option>
                                                     <option value="reflexion">reflexion</option>
-                                                    </select></li>
+                                                    </select>
             </div>
 
             <div class="form-group">
@@ -54,7 +54,7 @@ include('../../include.php');
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="create_activite" class="btn btn-primary">Save</button>
+            <button type="submit" name="add_activite" class="btn btn-primary">Save</button>
         </div>
         <?php echo add_activite(); ?>
       </form>

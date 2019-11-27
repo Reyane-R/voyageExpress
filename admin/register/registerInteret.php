@@ -1,4 +1,4 @@
-<?php
+<?php 
 include('../../includes/header.php'); 
 include('../../includes/navbar.php'); 
 include('../../fonctions.php');
@@ -15,53 +15,55 @@ include('../../include.php');
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="registerHebergement.php" method="POST">
+      <form action="registerInteret.php" method="POST">
 
         <div class="modal-body">
 
             <div class="form-group">
-                <label> hebergement_name </label>
-                <input type="text" name="hebergement_name" class="form-control" placeholder="Enter hebergement_name">
+                <label> name_interet </label>
+                <input type="text" name="name_interet" class="form-control" placeholder="Enter name_interet">
             </div>
             <div class="form-group">
-                <label>type_hebergement</label>
-                <select name="type_hebergement" class="form-control" placeholder="Entrez un type">
-                                                    <option value="hotel">hotel</option>
-                                                    <option value="palace">palace</option>
-                                                    <option value="camping">camping</option>
-                                                    <option value="auberge de jeunesse">auberge de jeunesse</option>
-                                                    <option value="appartement">appartement</option>
-                                                    <option value="airbnb">airbnb</option>
-                                                    <option value="maison">maison</option>
+                <label>type_interet</label>
+                <select name="type_interet" class="form-control" placeholder="Entrez un type ">
+                                                    <option value="police">police</option>
+                                                    <option value="hopital">hopital</option>
+                                                    <option value="gendarmerie">gendarmerie</option>
+                                                    <option value="banque">banque</option>
+                                                    <option value="station service">station service</option>
+                                                    <option value="centre commercial">centre commmercial</option>
                                                     </select>
             </div>
             <div class="form-group">
-                <label> city_hebergement </label>
-                <input type="text" name="city_hebergement" class="form-control" placeholder="Enter city_hebergement">
+                <label> telephone </label>
+                <input type="text" name="telephone" class="form-control" placeholder="Enter telephone">
             </div>
             <div class="form-group">
-                <label>adress_hebergement</label>
-                <input type="text" name="adress_hebergement" class="form-control" placeholder="Enter adress_hebergement">
+                <label>adress_interet</label>
+                <input type="text" name="adress_interet" class="form-control" placeholder="Enter adress_interet">
             </div>
             <div class="form-group">
-                <label> average_price </label>
-                <input type="text" name="average_price" class="form-control" placeholder="Enter average_price">
+                <label>time_open</label>
+                <input type="text" name="time_open" class="form-control" placeholder="Enter time_open">
             </div>
-        
+            <div class="form-group">
+                <label> city_interet </label>
+                <input type="text" name="city_interet" class="form-control" placeholder="Enter city_interet">
+            </div>
+
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="add_hebergement" class="btn btn-primary">Save</button>
+            <button type="submit" name="add_interet" class="btn btn-primary">Save</button>
         </div>
 
         <?php 
-        echo add_hebergement();
+        echo add_interet();
 
-/*
-        $query = 'SELECT type_hebergement FROM hebergement';
+        $query = "SELECT * FROM point_interet ";
 
-
-        echo display_table_query($query); */ ?> 
+        echo display_table_query($query);
+         ?>
       </form>
 
     </div>
@@ -126,8 +128,3 @@ include('../../include.php');
 
 </div>
 <!-- /.container-fluid -->
-
-<?php
-include('includes/scripts.php');
-include('includes/footer.php');
-?>

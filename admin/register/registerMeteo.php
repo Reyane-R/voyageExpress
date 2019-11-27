@@ -1,6 +1,8 @@
 <?php
-include('includes/header.php'); 
-include('includes/navbar.php'); 
+include('../../includes/header.php'); 
+include('../../includes/navbar.php'); 
+include('../../fonctions.php');
+include('../../include.php');
 ?>
 
 
@@ -8,12 +10,12 @@ include('includes/navbar.php');
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Meteo Data</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Hebergement</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="code.php" method="POST">
+      <form action="registerMeteo.php" method="POST">
 
         <div class="modal-body">
 
@@ -23,18 +25,28 @@ include('includes/navbar.php');
             </div>
             <div class="form-group">
                 <label>temps_meteo</label>
-                <input type="text" name="temps_meteo" class="form-control" placeholder="Enter temps_meteo">
+                <select name="temps_meteo" class="form-control" placeholder="Entrez un type ">
+                                                    <option value="ensoleille">ensoleille</option>
+                                                    <option value="nuageux">nuageux</option>
+                                                    <option value="pluvieux">pluvieux</option>
+                                                    <option value="vent violent">vent violent</option>
+                                                    <option value="humide">humide</option>
+                                                    </select>
             </div>
             <div class="form-group">
-                <label>temperature</label>
+                <label> temperature </label>
                 <input type="text" name="temperature" class="form-control" placeholder="Enter temperature">
             </div>
         
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="registerbtn" class="btn btn-primary">Save</button>
+            <button type="submit" name="add_meteo" class="btn btn-primary">Save</button>
         </div>
+
+        <?php 
+        echo add_meteo();
+?>
       </form>
 
     </div>
@@ -47,9 +59,9 @@ include('includes/navbar.php');
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Admin Meteo 
+    <h6 class="m-0 font-weight-bold text-primary">Admin Activite
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
-              Add Meteo 
+              Add Activite
             </button>
     </h6>
   </div>
