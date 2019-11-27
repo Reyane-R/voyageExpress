@@ -1,5 +1,6 @@
 <?php
     include "../include.php";
+    include "../fonctions.php";
     session_start();
   if (!$_SESSION['login']) {
 
