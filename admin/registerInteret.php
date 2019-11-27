@@ -63,7 +63,7 @@ include('../include.php');
 
         $query = "SELECT * FROM point_interet ";
 
-        echo display_table_query($query);
+        echo display_table_query($query, 3);
          ?>
       </form>
 
