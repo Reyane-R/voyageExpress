@@ -58,13 +58,7 @@ include('../include.php');
             <button type="submit" name="add_interet" class="btn btn-primary">Save</button>
         </div>
 
-        <?php 
-        echo add_interet();
-
-        $query = "SELECT * FROM point_interet ";
-
-        echo display_table_query($query, 3);
-         ?>
+      
       </form>
 
     </div>
