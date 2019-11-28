@@ -19,8 +19,8 @@ CREATE TABLE utilisateur
     login character varying(50) NOT NULL,
     password character varying(200) NOT NULL,
     type_account typeaccount NOT NULL,
-    email character varying(100) NOT NULL
-
+    email character varying(100) NOT NULL,
+    UNIQUE (login,email)
 );
 
 CREATE TABLE pays
