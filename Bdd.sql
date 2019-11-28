@@ -16,10 +16,13 @@ CREATE TYPE typemeteo AS ENUM ('ensoleille', 'nuageux', 'pluvieux', 'vent violen
 
 CREATE TABLE utilisateur
 (
-    login character varying(50) NOT NULL,
+    login character varying(50) NOT NULL UNIQUE,
     password character varying(200) NOT NULL,
     type_account typeaccount NOT NULL,
-    email character varying(100) NOT NULL
+    email character varying(100) NOT NULL UNIQUE,
+    CONSTRAINT utilisateur_pkey PRIMARY KEY (login)
+
+
 
 );
 
@@ -31,7 +34,8 @@ CREATE TABLE pays
     average_price integer NOT NULL,
     visa_required boolean,
     vaccin_required boolean,
-    CONSTRAINT pays_pkey PRIMARY KEY (id_country)
+    CONSTRAINT pays_pkey PRIMARY KEY (id_country),
+    CONSTRAINT pays_key PRIMARY KEY (average_price)
 );
 
 CREATE TABLE locomotion
@@ -39,9 +43,12 @@ CREATE TABLE locomotion
     id_locomotion serial,
     locomotion_name character (50) NOT NULL,
     type_locomotion typelocomotion NOT NULL,
-    price_locomotion integer,
+    price_locomotion integer NOT NULL,
     horaire_locomotion character varying(200),
-    CONSTRAINT locomotion_pkey PRIMARY KEY (id_locomotion)
+    CONSTRAINT locomotion_pkey PRIMARY KEY (id_locomotion),
+    CONSTRAINT locomotion_pkey PRIMARY KEY (locomotion_name),
+    CONSTRAINT locomotion_pkey PRIMARY KEY (price_locomotion)
+
 );
 
 CREATE TABLE hebergement
@@ -54,6 +61,8 @@ CREATE TABLE hebergement
     average_price integer NOT NULL,
     h_login character varying(50),
     CONSTRAINT hebergement_pkey PRIMARY KEY (id_hebergement),
+    CONSTRAINT hebergement_pkey PRIMARY KEY (hebergement_name),
+    CONSTRAINT hebergement_pkey PRIMARY KEY (average_price),
     FOREIGN KEY (h_login) REFERENCES utilisateur (login)
 );
 
@@ -88,6 +97,8 @@ CREATE TABLE activite
     price_activite integer,
     a_login character varying(50),
     CONSTRAINT activite_pkey PRIMARY KEY (id_activite),
+    CONSTRAINT activite_pkey PRIMARY KEY (name_activite),
+    CONSTRAINT activite_pkey PRIMARY KEY (city_activite),
     FOREIGN KEY (a_login) REFERENCES utilisateur (login)
 );
 
@@ -101,11 +112,12 @@ CREATE TABLE price
     FOREIGN KEY (name_stuff) REFERENCES activite (name_activite),
     FOREIGN KEY (name_stuff) REFERENCES hebergement (hebergement_name),
     FOREIGN KEY (name_stuff) REFERENCES pays (country_name),
-    FOREIGN KEY (price_stuff) REFERENCES price_activite(activite),
-    FOREIGN KEY (price_stuff) REFERENCES average_price(hebergement),
-    FOREIGN KEY (price_stuff) REFERENCES average_price(pays)
+    FOREIGN KEY (name_stuff) REFERENCES locomotion (locomotion_name),
+    FOREIGN KEY (price_stuff) REFERENCES activite (price_activite),
+    FOREIGN KEY (price_stuff) REFERENCES hebergement (average_price),
+    FOREIGN KEY (price_stuff) REFERENCES pays (average_price),
+    FOREIGN KEY (price_stuff) REFERENCES locomotion (price_locomotion)
 );
-
 
 
 
