@@ -30,40 +30,57 @@ header('Location:../index.php');
 
 ?>
 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+<head>
+	<title>editMeteo Page</title>
+   <!--Made with love by Mutiullah Samim -->
+   
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="../css/main.css">
-
-
-        <title>Voyage Express</title>
-    </head>
-    <body>
-         <div class="bloc">
-                                <h1><a> VOYAGE EXPRESS </a></h1>
-                            </div>
-                
-            <h2 class="gradient-8"> Modification </h2>
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Modifier locomotion_name</h3>
+			</div>
+			<div class="card-body">
             <form action="<?php $thisedit ?>" method="post">
-                <ul class="center">
-                    <li> <strong> Ville :</strong> <input type="text" name="city_meteo" placeholder="<?php echo $city_meteo ?>"/></li>
-                    <li> <strong> Temps :</strong>  <select name="temps_meteo" placeholder="<?php echo $temps_meteo ?>">
+                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="text" name="temperature" placeholder="<?php echo $temperature ?>">
+                    </div>
+                    <div class="input-group form-group">
+                    <select name="temps_meteo" placeholder="<?php echo $temps_meteo ?>">
                                                     <option value="ensoleille">ensolleilé</option>
                                                     <option value="nuageux">nuageux</option>
                                                     <option value="pluvieux">pluvieux</option>
                                                     <option value="vent violent">vent violent</option>
                                                     <option value="humide">humide</option>
-                                                    </select></li>
-
-                    <li> <strong> Température :</strong> <input type="text" name="temperature" placeholder="<?php echo $temperature ?>"></li>   
-                                                 
-                
-                </ul>
-                <div class="center"><input type="submit" value="Submit"></div>
-            </form>
-        </div>
-    </body>
+                                                    </select>
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Modifier" class="btn float-right login_btn">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
 </html>

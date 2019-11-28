@@ -1,6 +1,6 @@
 <?php
-    include "../../include.php";
+    include "../include.php";
 $id = $_GET['id'];
 $result = pg_query( "DELETE FROM hebergement WHERE id_hebergement=$id");
-header("Location:../registerHebergement.php");
+header("Location:admin.php");
 ?>

@@ -27,29 +27,18 @@
 			</div>
 			<div class="card-body">
             <form action="<?php $thisedit ?>" method="post">
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-                        </div>
-                         <input type="text" name="locomotion_name" placeholder="locomotion_name <?php echo $locomotion_name ?>"/>
-						
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="text" name="horaire_locomotion" placeholder=" horaire_locomotion <?php echo $horaire_locomotion ?>">
-                    </div>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="email" class="form-control" placeholder="<?php echo $email  ?>">
+						<input type="text" name="name_stuff" placeholder="<?php echo $name_stuff ?>"/>
                     </div>
                     <div class="input-group form-group">
-                        <select name="type_locomotion" placeholder="<?php echo $type_locomotion ?>">
-                                                    <option value="prive">privé</option>
-                                                    <option value="public">public</option>
-                                                    </select></li>
+                    <select name="type_stuff" placeholder="<?php echo $type_stuff ?>">
+                                                    <option value="hebergement">hebergement</option>
+                                                    <option value="locomotion">locomotion</option>
+                                                    <option value="pays">pays</option>
+                                                    </select>
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Modifier" class="btn float-right login_btn">

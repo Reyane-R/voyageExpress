@@ -35,30 +35,40 @@ header('Location:../index.php');
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link rel="stylesheet" href="../css/main.css">
-
-
+        <link rel="stylesheet" type="text/css" href="styles.css">
         <title>Voyage Express</title>
     </head>
     <body>
-         <div class="bloc">
-                                <h1><a> VOYAGE EXPRESS </a></h1>
-                            </div>
-                
-            <h2 class="gradient-8"> Modification </h2>
+    <div class="sidenav">
+         <div class="login-main-text">
+            <h2>Application<br> Login Page</h2>
+            <p>Login or register from here to access.</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
             <form action="<?php $thisedit ?>" method="post">
-                <ul class="center">
-                    <li> <strong> Nom :</strong> <input type="text" name="name_stuff" placeholder="<?php echo $name_stuff ?>"/></li>
-                    <li> <strong> Type d'objet :</strong>  <select name="type_stuff" placeholder="<?php echo $type_stuff ?>">
+          <div class="form-group">
+                     <label>Name stuff</label>
+                     <input type="text" name="name_stuff" placeholder="<?php echo $name_stuff ?>"/>
+                     </div>
+                    <div class="form-group">
+                     <label>Type</label>
+                     <select name="type_stuff" placeholder="<?php echo $type_stuff ?>">
                                                     <option value="hebergement">hebergement</option>
                                                     <option value="locomotion">locomotion</option>
                                                     <option value="pays">pays</option>
-                                                    </select></li>
-                    <li> <strong> Prix :</strong> <input type="text" name="price_stuff" placeholder="<?php echo $price_stuff ?>"></li>                   
-                </ul>
+                                                    </select>
+                                                    </div>
+                    <div class="form-group">
+                     <label>Price stuff</label>
+                 <input type="text" name="price_stuff" placeholder="<?php echo $price_stuff ?>"> 
+                    </div>                 
                 <div class="center"><input type="submit" value="Submit"></div>
             </form>
-        </div>
+            </div>
+         </div>
+      </div>
     </body>
 </html>

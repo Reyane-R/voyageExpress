@@ -44,22 +44,40 @@ header('Location:../index.php');
         <title>Voyage Express</title>
     </head>
     <body>
-         <div class="bloc">
-                                <h1><a> VOYAGE EXPRESS </a></h1>
-                            </div>
-                
-            <h2 class="gradient-8"> Modification </h2>
+    <div class="sidenav">
+         <div class="login-main-text">
+            <h2>Application<br> Modifier pays</h2>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
             <form action="<?php $thisedit ?>" method="post">
-                <ul class="center">
-                    <li> <strong> Nom :</strong> <input type="text" name="country_name" placeholder="<?php echo $country_name ?>"/></li>
-                    <li> <strong> Temps de vol :</strong> <input type="text" name="time_fly" placeholder="<?php echo $time_fly ?>"/></li>
-                    <li> <strong> Prix moyen :</strong> <input type="text" name="average_price" placeholder="<?php echo $average_price ?>">                             
-                    <li> <strong> Visa :</strong> <input type="text" name="visa_required" placeholder="<?php echo $visa_required?>"/></li>
-                    <li> <strong> Vaccin :</strong> <input type="text" name="vaccin_required" placeholder="<?php echo $vaccin_required ?>"/></li>
+            <div class="form-group">
+                     <label>country_name</label>
+                    <input type="text" name="country_name" placeholder="<?php echo $country_name ?>"/></li>
+                    </div>
+                    <div class="form-group">
+                     <label>time_fly</label>
+                    <input type="text" name="time_fly" placeholder="<?php echo $time_fly ?>"/></li>
+                    </div>
+                    <div class="form-group">
+                     <label>average_price</label>  
+                     <input type="text" name="average_price" placeholder="<?php echo $average_price ?>">                             
+                     </div>
+                     <div class="form-group">
+                     <label>visa_required</label> 
+                    <input type="text" name="visa_required" placeholder="<?php echo $visa_required?>"/></li>
+                    </div>
+                    <div class="form-group">
+                     <label>vaccin_required</label> 
+                    <input type="text" name="vaccin_required" placeholder="<?php echo $vaccin_required ?>"/></li>
+                    </div>
                 
-                </ul>
                 <div class="center"><input type="submit" value="Submit"></div>
             </form>
-        </div>
+            </div>
+         </div>
+      </div>
     </body>
 </html>

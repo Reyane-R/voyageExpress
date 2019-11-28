@@ -44,15 +44,24 @@ header('Location:../index.php');
         <title>Voyage Express</title>
     </head>
     <body>
-           <div class="bloc">
-                                <h1><a>VOYAGE EXPRESS </a></h1>
-                            </div>
-                
-            <h2 class="gradient-8"> Modification </h2>
+    <div class="sidenav">
+         <div class="login-main-text">
+            <h2>Application<br> Login Page</h2>
+            <p>Login or register from here to access.</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
             <form action="<?php $thisedit ?>" method="post">
-                <ul class="center">
-                    <li> <strong> Nom :</strong> <input type="text" name="hebergement_name" placeholder="<?php echo $hebergement_name ?>"/></li>
-                    <li> <strong> Type :</strong> <select name="type_hebergement" placeholder="<?php echo $type_hebergement ?>">
+                    <div class="form-group">
+                     <label>hebergement_name</label>
+                     <input type="text" name="hebergement_name" placeholder="<?php echo $hebergement_name ?>"/>
+                     </div>
+                     <div class="form-group">
+                     <label>type_hebergement</label>
+                     </div>
+                     <select name="type_hebergement" placeholder="<?php echo $type_hebergement ?>">
                                                     <option value="hotel">hotel</option>
                                                     <option value="camping">camping</option>
                                                     <option value="palace">palace</option>
@@ -60,17 +69,23 @@ header('Location:../index.php');
                                                     <option value="appartement">appartement</option>
                                                     <option value="airbnb">airbnb</option>
                                                     <option value="maison">maison</option>
-                                                    </select></li>
-                   
-                    <li> <strong> Ville :</strong> <input type="text" name="city_hebergement" placeholder="<?php echo $city_hebergement  ?>"/></li>
-
-                    <li> <strong> Adresse :</strong> <input type="text" name="adress_hebergement" placeholder="<?php echo $adress_hebergement ?>"/></li>
-
-                    <li> <strong> Prix Moyen :</strong> <input type="text" name="average_price" placeholder="<?php echo $average_price  ?>"/></li>
-
-                </ul>
+                                                    </select></div>
+                    <div class="form-group">
+                     <label>city_hebergement</label>
+                     <input type="text" name="city_hebergement" placeholder="<?php echo $city_hebergement  ?>"/>
+                     </div>
+                     <div class="form-group">
+                     <label>adress_hebergement</label>
+                    <input type="text" name="adress_hebergement" placeholder="<?php echo $adress_hebergement ?>"/>
+                    </div>
+                    <div class="form-group">
+                     <label>average_price</label>
+                    <input type="text" name="average_price" placeholder="<?php echo $average_price  ?>"/>
+                    </div>
                 <div class="center"><input type="submit" value="Submit"></div>
             </form>
-        </div>
+            </div>
+         </div>
+      </div>
     </body>
 </html>

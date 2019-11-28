@@ -31,42 +31,59 @@ header('Location:../index.php');
     $price_activite = get_info("activite", $id, "price_activite", "id_activite");
 
 ?>
-
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="style2.css">
 
 
         <title>Voyage Express</title>
     </head>
     <body>
-         <div class="bloc">
-                                <h1><a> VOYAGE EXPRESS </a></h1>
-                            </div>
-                
-            <h2 class="gradient-8"> Modification </h2>
+    <div class="sidenav">
+         <div class="login-main-text">
+            <h2>Application<br> Login Page</h2>
+            <p>Login or register from here to access.</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
             <form action="<?php $thisedit ?>" method="post">
-                <ul class="center">
-                    <li> <strong> Nom :</strong> <input type="text" name="name_activite" placeholder="<?php echo $name_activite ?>"/></li>
-                    <li> <strong> Type de l'activité :</strong> <select name="type_activite" placeholder="<?php echo $type_activite ?>">
+            <div class="form-group">
+                     <label>User Name</label>
+                     <input type="text" name="name_activite" placeholder="<?php echo $name_activite ?>"/></li>
+                     <div class="form-group">
+                     <label>User Name</label>
+                     <select name="type_activite" placeholder="<?php echo $type_activite ?>">
                                                     <option value="musee">musée</option>
                                                     <option value="parc d attraction">parc d'attraction</option>
                                                     <option value="detente">détente</option>
                                                     <option value="bien-être">bien-être</option>
                                                     <option value="sport">sport</option>
                                                     <option value="reflexion">reflexion</option>
-                                                    </select></li>
-                    <li> <strong> Adresse :</strong> <input type="text" name="adress_activite" placeholder="<?php echo $adress_activite ?>"></li>                            
-                    <li> <strong> Ville :</strong> <input type="text" name="city_activite" placeholder="<?php echo $city_activite?>"/></li>
-                    <li> <strong> Prix :</strong> <input type="text" name="price_activite" placeholder="<?php echo $price_activite ?>"/></li>
+                                                    </select>
+                    <div class="form-group">
+                     <label>User Name</label> 
+                    <input type="text" name="adress_activite" placeholder="<?php echo $adress_activite ?>">                          
+                    <div class="form-group">
+                     <label>User Name</label> 
+                    <input type="text" name="city_activite" placeholder="<?php echo $city_activite?>"/>
+                    <div class="form-group">
+                     <label>User Name</label>  
+                    <input type="text" name="price_activite" placeholder="<?php echo $price_activite ?>"/>
                 
-                </ul>
                 <div class="center"><input type="submit" value="Submit"></div>
             </form>
-        </div>
+            </div>
+         </div>
+      </div>
     </body>
 </html>

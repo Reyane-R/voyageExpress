@@ -28,7 +28,7 @@ header('Location:../index.php');
     $type_activite = get_info("point_interet", $id, "type_interet", "id_interet");
     $telephone_activite = get_info("point_interet", $id, "telephone", "id_interet");
     $adress_interet = get_info("point_interet", $id, "adress_interet", "id_interet");
-    $time_open = get_info("point_interet", $id, "time_open", "id_interet")
+    $time_open = get_info("point_interet", $id, "time_open", "id_interet");
     $city_activite = get_info("point_interet", $id, "city_interet", "id_interet");
 
 ?>
@@ -45,15 +45,22 @@ header('Location:../index.php');
         <title>Voyage Express</title>
     </head>
     <body>
-         <div class="bloc">
-                                <h1><a> VOYAGE EXPRESS </a></h1>
-                            </div>
-                
-            <h2 class="gradient-8"> Modification </h2>
+    <div class="sidenav">
+         <div class="login-main-text">
+            <h2>Application<br> Login Page</h2>
+            <p>Login or register from here to access.</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
             <form action="<?php $thisedit ?>" method="post">
-                <ul class="center">
-                    <li> <strong> Nom :</strong> <input type="text" name="name_interet" placeholder="<?php echo $name_interet ?>"/></li>
-                    <li> <strong> Type du point d'intêret :</strong> 
+            <div class="form-group">
+                     <label>User Name</label>
+                     <input type="text" name="name_interet" placeholder="<?php echo $name_interet ?>"/>
+                     </div>
+                     <div class="form-group">
+                     <label>User Name</label>
                                         <select name="type_interet" placeholder="<?php echo $type_interet ?>">
                                                     <option value="police">police</option>
                                                     <option value="hopital">hopital</option>
@@ -61,15 +68,27 @@ header('Location:../index.php');
                                                     <option value="banque">banque</option>
                                                     <option value="station service">station service</option>
                                                     <option value="centre commercial">centre commercial</option>
-                                                    </select></li>
-                    <li> <strong> Téléphone :</strong> <input type="text" name="telephone_activite" placeholder="<?php echo $telephone_activite ?>"></li>   
-                    <li> <strong> Adresse :</strong> <input type="text" name="adress_interet" placeholder="<?php echo $adress_interet ?>"></li>                          
-                    <li> <strong> Horaires :</strong> <input type="text" name="time_open" placeholder="<?php echo $time_open?>"/></li>
-                    <li> <strong> Ville :</strong> <input type="text" name="point_interet" placeholder="<?php echo $point_interet ?>"/></li>
-                
-                </ul>
+                                                    </select></div>
+                    <div class="form-group">
+                     <label>User Name</label>
+                     <input type="text" name="telephone_activite" placeholder="<?php echo $telephone_activite ?>">   
+                     </div>
+                     <div class="form-group">
+                     <label>User Name</label>
+                     <input type="text" name="adress_interet" placeholder="<?php echo $adress_interet ?>">                          
+                     </div>
+                     <div class="form-group">
+                     <label>User Name</label>
+                     <input type="text" name="time_open" placeholder="<?php echo $time_open?>"/>
+                     </div>
+                     <div class="form-group">
+                     <label>User Name</label>
+                     <input type="text" name="point_interet" placeholder="<?php echo $point_interet ?>"/>
+                     </div>
                 <div class="center"><input type="submit" value="Submit"></div>
             </form>
-        </div>
+            </div>
+         </div>
+      </div>
     </body>
 </html>
