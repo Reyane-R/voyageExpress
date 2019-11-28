@@ -19,9 +19,8 @@ CREATE TABLE utilisateur
     login character varying(50) NOT NULL,
     password character varying(200) NOT NULL,
     type_account typeaccount NOT NULL,
-    email character varying(100) NOT NULL,
-    UNIQUE (login),
-    UNIQUE (email)
+    email character varying(100) NOT NULL
+
 );
 
 CREATE TABLE pays
@@ -98,8 +97,15 @@ CREATE TABLE price
     name_stuff character varying(100) NOT NULL,
     type_stuff typestuff NOT NULL,
     price_stuff integer NOT NULL,
-    CONSTRAINT price_pkey PRIMARY KEY (id_stuff)
+    CONSTRAINT price_pkey PRIMARY KEY (id_stuff),
+    FOREIGN KEY (name_stuff) REFERENCES activite (name_activite),
+    FOREIGN KEY (name_stuff) REFERENCES hebergement (hebergement_name),
+    FOREIGN KEY (name_stuff) REFERENCES pays (country_name),
+    FOREIGN KEY (price_stuff) REFERENCES price_activite(activite),
+    FOREIGN KEY (price_stuff) REFERENCES average_price(hebergement),
+    FOREIGN KEY (price_stuff) REFERENCES average_price(pays)
 );
+
 
 
 
