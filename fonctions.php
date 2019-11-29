@@ -261,12 +261,11 @@ function add_utilisateur(){
 function add_price(){
 	$return = null;
 	if (isset($_POST['add_price'])) {
-		$name_stuff = $_POST['name'];
-		$type_stuff = $_POST['type'];
-		$price_stuff = $_POST['price'];
+		$type_stuff = $_POST['type_stuff'];
+		$price_stuff = $_POST['price_stuff'];
 
-		if($name_stuff!="" && $type_stuff!="" && $price_stuff !=""){
-			$query = "INSERT INTO price (name_stuff, type_stuff, price_stuff) VALUES ('$name_stuff', '$type_stuff', '$price_stuff')";
+		if($type_stuff!="" && $price_stuff !=""){
+			$query = "INSERT INTO price (type_stuff, price_stuff) VALUES ('$type_stuff', '$price_stuff')";
 
 			$results = pg_query($query);
 			if(pg_affected_rows($results) == 1)
@@ -280,7 +279,7 @@ function add_price(){
 	}
 	$return = '<p style="color:red;">'.$return.'</p>';
 	return $return;
-}
+} 
 
  /* METEO */
 function add_meteo(){
@@ -335,9 +334,10 @@ function add_meteo(){
 function display_table_query($query, $flag=0){
             //echo $query;
             $id = 0;
+            $login = 0;
             $result = pg_query($query);
             $i = 0;
-            $char = '<table><thead><tr>';
+            $char = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr>';
             while ($i < pg_num_fields($result))
             {
                 $fieldName = pg_field_name($result, $i);
@@ -350,6 +350,7 @@ function display_table_query($query, $flag=0){
             while ($row = pg_fetch_row($result))
             {
               $id = current($row);
+              $login = current($row);
               $char .= '<tr>';
               $count = count($row);
               $j = 0;
@@ -359,44 +360,45 @@ function display_table_query($query, $flag=0){
                   if ($flag == 1 || $flag == 2){
                     if ($j == 0)
                       $id = $c_row;
+                      $login = $c_row;
                   }
                   $char .= '<td>' . $c_row . '</td>';
                   next($row);
                   $j = $j + 1;
               }
               if ($flag == 1){ // Modifier / Supprimer les hébergements
-                $char.= '<td><a href="editHebergement.php?id='.$id.'">Modifier</a></td>';
-                $char.= '<td><a href="deleteHebergement.php?id='.$id.'">Supprimer</a></td>';
+                $char.= '<td><a name="edit_btn" class="btn btn-success" role="button" href="editDelete/editHebergement.php?id='.$id.'">Modifier</a></td>';
+                $char.= '<td><a name="delete_btn" class="btn btn-danger" role="button" href="editDelete/deleteHebergement.php?id='.$id.'">Supprimer</a></td>';
               }
               if ($flag == 2){ // Modifier / Supprimer les activités
-                $char.= '<td><a  href="editActivite.php?id='.$id.'">Modifier</a></td>';
-                $char.= '<td><a  href="deleteActivite.php?id='.$id.'">Supprimer</a></td>';
+                $char.= '<td><a name="edit_btn" class="btn btn-success" role="button" href="editDelete/editActivite.php?id='.$id.'">Modifier</a></td>';
+                $char.= '<td><a name="delete_btn" class="btn btn-danger" role="button" href="editDelete/deleteActivite.php?id='.$id.'">Supprimer</a></td>';
               }
               if($flag==3){ // Modifier / Supprimer les point d'interets
-                $char.= '<td><a  href="editInteret.php?id='.$id.'">Modifier</a></td>';
-                $char.= '<td><a  href="deleteInteret.php?id='.$id.'">Supprimer</a></td>';
+                $char.= '<td><a name="edit_btn" class="btn btn-success" role="button" href="editDelete/editInteret.php?id='.$id.'">Modifier</a></td>';
+                $char.= '<td><a name="delete_btn" class="btn btn-danger" role="button" href="editDelete/deleteInteret.php?id='.$id.'">Supprimer</a></td>';
                
               }
               if($flag==4){ // Modifier / Supprimer les meteo
-                $char.= '<td><a  href="editMeteo.php?id='.$id.'">Modifier</a></td>';
-                $char.= '<td><a  href="deleteMeteo.php?id='.$id.'">Supprimer</a></td>';
+                $char.= '<td><a name="edit_btn" class="btn btn-success" role="button"  href="editDelete/editMeteo.php?id='.$id.'">Modifier</a></td>';
+                $char.= '<td><a name="delete_btn" class="btn btn-danger" role="button" href="editDelete/deleteMeteo.php?id='.$id.'">Supprimer</a></td>';
                 
               }
               if($flag==5){ // Modifier / Supprimer les prix
-                $char.= '<td><a  href="editPrice.php?id='.$id.'">Modifier</a></td>';
-                $char.= '<td><a href="deletePrice.php?id='.$id.'">Supprimer</a></td>';
+                $char.= '<td><a name="edit_btn" class="btn btn-success" role="button" href="editDelete/editPrice.php?id='.$id.'">Modifier</a></td>';
+                $char.= '<td><a name="delete_btn" class="btn btn-danger" role="button" href="editDelete/deletePrice.php?id='.$id.'">Supprimer</a></td>';
               }
               if($flag==6){ // Modifier / Supprimer les moyens de locomotion
-                $char.= '<td><a  href="editLocomotion.php?id='.$id.'">Modifier</a></td>';
-                $char.= '<td><a  href="deleteLocomotion.php?id='.$id.'">Supprimer</a></td>';
+                $char.= '<td><a name="edit_btn" class="btn btn-success" role="button" href="editDelete/editLocomotion.php?id='.$id.'">Modifier</a></td>';
+                $char.= '<td><a name="delete_btn" class="btn btn-danger" role="button" href="editDelete/deleteLocomotion.php?id='.$id.'">Supprimer</a></td>';
               }
               if($flag==7){ // Modifier / Supprimer les pays
-               $char.= '<td><a href="editPays.php?id='.$id.'">Modifier</a></td>';
-               $char.= '<td><a href="deletePays.php?id='.$id.'">Supprimer</a></td>';
+               $char.= '<td><a name="edit_btn" class="btn btn-success" role="button" href="editDelete/editPays.php?id='.$id.'">Modifier</a></td>';
+               $char.= '<td><a name="delete_btn" class="btn btn-danger" role="button" href="editDelete/deletePays.php?id='.$id.'">Supprimer</a></td>';
               }
               if($flag==8){// Modifier / Supprimer les utilisateurs
-              	$char.= '<td><a href="editUtilisateur.php?id='.$id.'">Modifier</a></td>';
-               	$char.= '<td><a href="deleteUtilisateur.php?id='.$id.'">Supprimer</a></td>';
+              	$char.= '<td><a name="edit_btn" class="btn btn-success" role="button" href="editDelete/editUtilisateur.php?login='.$login.'">Modifier</a></td>';
+               	$char.= '<td><a name="delete_btn" class="btn btn-danger" role="button" href="editDelete/deleteUtilisateur.php?login='.$login.'">Supprimer</a></td>';
               }
 
               $char .= '</tr>';
@@ -407,6 +409,57 @@ function display_table_query($query, $flag=0){
             return $char;
         }
 
+
+
+        function display_table_query_user($query, $flag=0){
+            //echo $query;
+            $id = 0;
+            $login = 0;
+            $result = pg_query($query);
+            $i = 0;
+            $char = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr>';
+            while ($i < pg_num_fields($result))
+            {
+                $fieldName = pg_field_name($result, $i);
+                 $char .= '<th>' . $fieldName . '</th>';
+                $i = $i + 1;
+            }
+            if($flag>0)
+              $char .= '<th></th></tr></thead><tbody>';
+            $i = 0;
+            while ($row = pg_fetch_row($result))
+            {
+              $id = current($row);
+              $login = current($row);
+              $char .= '<tr>';
+              $count = count($row);
+              $j = 0;
+              while ($j < $count)
+              {
+                  $c_row = current($row);
+                  if ($flag == 1 || $flag == 2){
+                    if ($j == 0)
+                      $id = $c_row;
+                      $login = $c_row;
+                  }
+                  $char .= '<td>' . $c_row . '</td>';
+                  next($row);
+                  $j = $j + 1;
+              }
+              if ($flag == 1){ // Réserver un hébergement
+                $char.= '<td><a name="edit_btn" class="btn btn-success" role="button" href="reserveHebergement.php?id='.$id.'">Réserver</a></td>';
+              }
+              if ($flag == 2){ // Réserver une activité
+                $char.= '<td><a name="edit_btn" class="btn btn-success" role="button" href="reserveActivite.php?id='.$id.'">Réserver</a></td>';
+                }
+
+              $char .= '</tr>';
+              $i = $i + 1;
+            }
+            pg_free_result($result);
+            $char .= '</tbody></table>';
+            return $char;
+        }
 
 
 
