@@ -1,6 +1,6 @@
 <?php
-    include "../include.php";
-    include "../fonctions.php";
+    include "../../include.php";
+    include "../../fonctions.php";
     session_start();
   if (!$_SESSION['login']) {
 
@@ -9,7 +9,7 @@ header('Location:../index.php');
 
 } 
     $id = $_GET['id'];
-    $view = "Location: ./admin.php";
+    $view = "Location: ../registerInteret.php";
     $thisedit = "./edit.php?id=$id";
     $exist = false;
     $delete = "./delete.php?id=$id";
@@ -24,26 +24,31 @@ header('Location:../index.php');
         header($view);
     }
     
-    $name_activite = get_info("point_interet", $id, "name_interet", "id_interet");
-    $type_activite = get_info("point_interet", $id, "type_interet", "id_interet");
-    $telephone_activite = get_info("point_interet", $id, "telephone", "id_interet");
+    $name_interet = get_info("point_interet", $id, "name_interet", "id_interet");
+    $type_interet = get_info("point_interet", $id, "type_interet", "id_interet");
+    $telephone = get_info("point_interet", $id, "telephone", "id_interet");
     $adress_interet = get_info("point_interet", $id, "adress_interet", "id_interet");
     $time_open = get_info("point_interet", $id, "time_open", "id_interet");
-    $city_activite = get_info("point_interet", $id, "city_interet", "id_interet");
+    $city_interet = get_info("point_interet", $id, "city_interet", "id_interet");
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<head>
+    <title>Login Page</title>
+   <!--Made with love by Mutiullah Samim -->
+   
+    <!--Bootsrap 4 CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="../css/main.css">
-
-
-        <title>Voyage Express</title>
-    </head>
+    <!--Custom styles-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
     <body>
     <div class="sidenav">
          <div class="login-main-text">
@@ -56,11 +61,11 @@ header('Location:../index.php');
             <div class="login-form">
             <form action="<?php $thisedit ?>" method="post">
             <div class="form-group">
-                     <label>User Name</label>
+                     <label><strong style="color:white;">Nom</label>
                      <input type="text" name="name_interet" placeholder="<?php echo $name_interet ?>"/>
                      </div>
                      <div class="form-group">
-                     <label>User Name</label>
+                     <label><strong style="color:white;">Type</strong></label>
                                         <select name="type_interet" placeholder="<?php echo $type_interet ?>">
                                                     <option value="police">police</option>
                                                     <option value="hopital">hopital</option>
@@ -70,20 +75,20 @@ header('Location:../index.php');
                                                     <option value="centre commercial">centre commercial</option>
                                                     </select></div>
                     <div class="form-group">
-                     <label>User Name</label>
-                     <input type="text" name="telephone_activite" placeholder="<?php echo $telephone_activite ?>">   
+                     <label><strong style="color:white;">Telephone</strong></label>
+                     <input type="text" name="telephone" placeholder="<?php echo $telephone ?>">   
                      </div>
                      <div class="form-group">
-                     <label>User Name</label>
+                     <label><strong style="color:white;">Adresse</strong></label>
                      <input type="text" name="adress_interet" placeholder="<?php echo $adress_interet ?>">                          
                      </div>
                      <div class="form-group">
-                     <label>User Name</label>
+                     <label><strong style="color:white;">Horaire</strong></label>
                      <input type="text" name="time_open" placeholder="<?php echo $time_open?>"/>
                      </div>
                      <div class="form-group">
-                     <label>User Name</label>
-                     <input type="text" name="point_interet" placeholder="<?php echo $point_interet ?>"/>
+                     <label><strong style="color:white;">Ville</strong></label>
+                     <input type="text" name="city_interet" placeholder="<?php echo $city_interet ?>"/>
                      </div>
                 <div class="center"><input type="submit" value="Submit"></div>
             </form>

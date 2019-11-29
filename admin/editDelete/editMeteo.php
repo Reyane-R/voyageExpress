@@ -1,6 +1,6 @@
 <?php
-    include "../include.php";
-    include "../fonctions.php";
+    include "../../include.php";
+    include "../../fonctions.php";
     session_start();
   if (!$_SESSION['login']) {
 
@@ -9,7 +9,7 @@ header('Location:../index.php');
 
 } 
     $id = $_GET['id'];
-    $view = "Location: ./admin.php";
+    $view = "Location: ../registerMeteo.php";
     $thisedit = "./edit.php?id=$id";
     $exist = false;
     $delete = "./delete.php?id=$id";
@@ -55,17 +55,23 @@ header('Location:../index.php');
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>Modifier locomotion_name</h3>
+				<h3>Modifier la Météo </h3>
 			</div>
 			<div class="card-body">
             <form action="<?php $thisedit ?>" method="post">
+
+                <strong style="color:white"> Ville </strong>
+                <input type="text" name="city_meteo" placeholder= "<?php echo $city_meteo ?>">
+
                     <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
+						<strong style="color:white;"> Température </strong>
+
 						<input type="text" name="temperature" placeholder="<?php echo $temperature ?>">
                     </div>
+
+
                     <div class="input-group form-group">
+                        <strong style="color:white;"> Type </strong>
                     <select name="temps_meteo" placeholder="<?php echo $temps_meteo ?>">
                                                     <option value="ensoleille">ensolleilé</option>
                                                     <option value="nuageux">nuageux</option>

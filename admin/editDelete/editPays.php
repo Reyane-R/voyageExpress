@@ -1,6 +1,6 @@
 <?php
-    include "../include.php";
-    include "../fonctions.php";
+    include "../../include.php";
+    include "../../fonctions.php";
     session_start();
   if (!$_SESSION['login']) {
 
@@ -9,7 +9,7 @@ header('Location:../index.php');
 
 } 
     $id = $_GET['id'];
-    $view = "Location: ./admin.php";
+    $view = "Location: ../registerPays.php";
     $thisedit = "./edit.php?id=$id";
     $exist = false;
     $delete = "./delete.php?id=$id";
@@ -24,7 +24,7 @@ header('Location:../index.php');
         header($view);
     }
     
-    $name_country = get_info("pays", $id, "country_name", "id_country");
+    $country_name = get_info("pays", $id, "country_name", "id_country");
     $time_fly = get_info("pays", $id, "time_fly", "id_country");
     $average_price= get_info("pays", $id, "average_price", "id_country");
     $visa_required = get_info("pays", $id, "visa_required", "id_country");
@@ -34,19 +34,23 @@ header('Location:../index.php');
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <head>
+  <title>Voyage Express</title>
+   <!--Made with love by Mutiullah Samim -->
+   
+  <!--Bootsrap 4 CDN-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="../css/main.css">
-
-
-        <title>Voyage Express</title>
-    </head>
+  <!--Custom styles-->
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
     <body>
     <div class="sidenav">
          <div class="login-main-text">
-            <h2>Application<br> Modifier pays</h2>
+            <h2> Modifier pays</h2>
          </div>
       </div>
       <div class="main">

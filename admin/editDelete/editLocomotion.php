@@ -1,3 +1,36 @@
+<?php
+    include "../../include.php";
+    include "../../fonctions.php";
+    session_start();
+  if (!$_SESSION['login']) {
+
+header('Location:../index.php');
+
+
+} 
+    $id = $_GET['id'];
+    $view = "Location: ../registerLocomotion.php";
+    $thisedit = "./edit.php?id=$id";
+    $exist = false;
+    $delete = "./delete.php?id=$id";
+    $_POST = array_filter($_POST);
+    foreach($_POST as $k => $v){
+        if(isset($_POST[$k])){
+            $exist = true;
+            edit_table("locomotion",$id,$k,$_POST[$k],"id_locomotion");
+        }
+    }
+    if($exist){
+        header($view);
+    }
+    
+    $locomotion_name = get_info("locomotion", $id, "locomotion_name", "id_locomotion");
+    $type_locomotion = get_info("locomotion", $id, "type_locomotion", "id_locomotion");
+    $price_locomotion = get_info("locomotion", $id, "price_locomotion", "id_locomotion");
+    $horaire_locomotion = get_info("locomotion", $id, "horaire_locomotion", "id_locomotion");
+
+?>
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -6,7 +39,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login Page</title>
+	<title>Voyage Express</title>
    <!--Made with love by Mutiullah Samim -->
    
 	<!--Bootsrap 4 CDN-->
@@ -23,34 +56,39 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>Modifier locomotion_name</h3>
+				<h3>Modifier Locomotion</h3>
 			</div>
+
+            
 			<div class="card-body">
             <form action="<?php $thisedit ?>" method="post">
 					<div class="input-group form-group">
-						<div class="input-group-prepend">
-                        </div>
-                         <input type="text" name="locomotion_name" placeholder="locomotion_name <?php echo $locomotion_name ?>"/>
+                       
+                        <strong style="color:white;"> Nom Locomotion: </strong>
+                         <input type="text" name="locomotion_name" placeholder =" <?php echo $locomotion_name ?>"/></li>
 						
 					</div>
+
+					<strong style="color:white;"> Type </strong>
 					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="text" name="horaire_locomotion" placeholder=" horaire_locomotion <?php echo $horaire_locomotion ?>">
-                    </div>
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="email" class="form-control" placeholder="<?php echo $email  ?>">
-                    </div>
-                    <div class="input-group form-group">
                         <select name="type_locomotion" placeholder="<?php echo $type_locomotion ?>">
                                                     <option value="prive">privé</option>
                                                     <option value="public">public</option>
-                                                    </select></li>
+                                                    </select>
 					</div>
+
+
+					<div class="input-group form-group">
+						<strong style="color:white;"> Prix : </strong>
+                        <input type="text" name="price_locomotion" placeholder="<?php echo $price_locomotion ?>">
+                                                  
+					</div>
+
+					<div class="input-group form-group">
+						<strong style="color:white;">Horaire : </strong>
+						<input type="text" name="horaire_locomotion" placeholder=" horaire_locomotion <?php echo $horaire_locomotion ?>">
+                    </div>
+                
 					<div class="form-group">
 						<input type="submit" value="Modifier" class="btn float-right login_btn">
 					</div>

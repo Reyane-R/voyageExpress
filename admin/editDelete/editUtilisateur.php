@@ -1,3 +1,40 @@
+<?php
+    include "../../include.php";
+    include "../../fonctions.php";
+    session_start();
+     if (!$_SESSION['login']) {
+
+header('Location:../index.php');
+
+
+} 
+    $id = $_GET['id'];
+    $view = "Location: ../registerUtilisateur.php";
+    $thisedit = "./edit.php?login=$id";
+    $exist = false;
+    $delete = "./delete.php?login=$id";
+    $_POST = array_filter($_POST);
+    foreach($_POST as $k => $v){
+        if(isset($_POST[$k])){
+            $exist = true;
+            edit_table("utilisateur",$id,$k,$_POST[$k],"login");
+        }
+    }
+    if($exist){
+        header($view);
+    }
+    
+    $login = get_info("utilisateur", $id, "login", "login");
+    $password  =  get_info("utilisateur", $id, "password", "login");
+    $email= get_info("utilisateur", $id, "email", "login");
+    $typeaccount = get_info("utilisateur", $id, "type_account","login");   
+   
+?>
+
+
+
+
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

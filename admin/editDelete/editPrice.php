@@ -1,6 +1,6 @@
 <?php
-    include "../include.php";
-    include "../fonctions.php";
+    include "../../include.php";
+    include "../../fonctions.php";
     session_start();
   if (!$_SESSION['login']) {
 
@@ -9,7 +9,7 @@ header('Location:../index.php');
 
 } 
     $id = $_GET['id'];
-    $view = "Location: ./admin.php";
+    $view = "Location: ../registerPrice.php";
     $thisedit = "./edit.php?id=$id";
     $exist = false;
     $delete = "./delete.php?id=$id";
@@ -41,7 +41,7 @@ header('Location:../index.php');
     <body>
     <div class="sidenav">
          <div class="login-main-text">
-            <h2>Application<br> Login Page</h2>
+            <h2>Modifier Prix</h2>
             <p>Login or register from here to access.</p>
          </div>
       </div>
@@ -49,10 +49,6 @@ header('Location:../index.php');
          <div class="col-md-6 col-sm-12">
             <div class="login-form">
             <form action="<?php $thisedit ?>" method="post">
-          <div class="form-group">
-                     <label>Name stuff</label>
-                     <input type="text" name="name_stuff" placeholder="<?php echo $name_stuff ?>"/>
-                     </div>
                     <div class="form-group">
                      <label>Type</label>
                      <select name="type_stuff" placeholder="<?php echo $type_stuff ?>">
