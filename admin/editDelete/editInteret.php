@@ -50,22 +50,21 @@ header('Location:../index.php');
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
     <body>
-    <div class="sidenav">
-         <div class="login-main-text">
-            <h2>Application<br> Login Page</h2>
-            <p>Login or register from here to access.</p>
-         </div>
-      </div>
-      <div class="main">
-         <div class="col-md-6 col-sm-12">
-            <div class="login-form">
+     <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Modification Point d'intérêt</h3>
+                </div>
+
+            <div class="card-body">
             <form action="<?php $thisedit ?>" method="post">
-            <div class="form-group">
-                     <label><strong style="color:white;">Nom</label>
+                <div class="input-group form-group">
+                     <strong style="color:white;">Nom</strong>
                      <input type="text" name="name_interet" placeholder="<?php echo $name_interet ?>"/>
-                     </div>
-                     <div class="form-group">
-                     <label><strong style="color:white;">Type</strong></label>
+                </div>
+                     <div class="input-group form-group">
+                     <strong style="color:white;">Type</strong>
                                         <select name="type_interet" placeholder="<?php echo $type_interet ?>">
                                                     <option value="police">police</option>
                                                     <option value="hopital">hopital</option>
@@ -73,27 +72,36 @@ header('Location:../index.php');
                                                     <option value="banque">banque</option>
                                                     <option value="station service">station service</option>
                                                     <option value="centre commercial">centre commercial</option>
-                                                    </select></div>
-                    <div class="form-group">
-                     <label><strong style="color:white;">Telephone</strong></label>
-                     <input type="text" name="telephone" placeholder="<?php echo $telephone ?>">   
+                                                    </select>
+                    </div>
+
+                    <div class="input-group form-group">
+                        <strong style="color:white;">Telephone</strong>
+                        <input type="text" name="telephone" placeholder="<?php echo $telephone ?>">   
+                    </div>
+
+                     <div class="input-group form-group">
+                        <strong style="color:white;">Adresse</strong>
+                        <input type="text" name="adress_interet" placeholder="<?php echo $adress_interet ?>">                          
                      </div>
-                     <div class="form-group">
-                     <label><strong style="color:white;">Adresse</strong></label>
-                     <input type="text" name="adress_interet" placeholder="<?php echo $adress_interet ?>">                          
+
+                     <div class="input-group form-group">
+                        <strong style="color:white;">Horaire</strong>
+                        <input type="text" name="time_open" placeholder="<?php echo $time_open?>"/>
                      </div>
-                     <div class="form-group">
-                     <label><strong style="color:white;">Horaire</strong></label>
-                     <input type="text" name="time_open" placeholder="<?php echo $time_open?>"/>
-                     </div>
-                     <div class="form-group">
-                     <label><strong style="color:white;">Ville</strong></label>
+
+                     <div class="input-group form-group">
+                        <strong style="color:white;">Ville</strong>
                      <input type="text" name="city_interet" placeholder="<?php echo $city_interet ?>"/>
                      </div>
-                <div class="center"><input type="submit" value="Submit"></div>
+
+                <div class="form-group">
+                  <input type="submit" value="Modifier" class="btn float-right login_btn">
+               </div>
             </form>
             </div>
          </div>
       </div>
+  </div>
     </body>
 </html>
