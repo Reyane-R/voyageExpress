@@ -1,9 +1,10 @@
 <?php
 include('includes/header.php'); 
-include('includes/navbar.php');
+include('includes/navbar.php'); 
 include('../fonctions.php');
 include('../include.php');
 ?>
+
 
 
 <div class="modal fade" id="addadminprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
