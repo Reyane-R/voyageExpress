@@ -36,9 +36,6 @@ include "fonctions.php";
           </a>
           <ul class="right hide-on-med-and-down">
             <li>
-              <a href="#home">Home</a>
-            </li>
-            <li>
               <a href="#Recherche">Recherche</a>
             </li>
             <li>
@@ -46,9 +43,6 @@ include "fonctions.php";
             </li>
             <li>
               <a href="#gallery">Gallery</a>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
             </li>
             <li>
               <div class="container center">
@@ -164,33 +158,39 @@ include "fonctions.php";
     <li>
       <a href="#contact">Contact</a>
     </li>
+    <li>
+      <a href="#login">Login</a>
+    </li>
+    <li>
+      <a href="#register">Register</a>
+    </li>
   </ul>
 
   <!-- Section: Slider -->
   <section class="slider">
     <ul class="slides">
       <li>
-        <img src="img/architecture-big-ben-bridge-buildings-262413.jpg" alt="">
+        <img src="https://source.unsplash.com/1600x900/?himalaya,night" alt="">
         <!-- random image -->
         <div class="caption center-align">
           <h2>Prenez vos vacances de rêve</h2>
-          <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, provident eos dicta unde debitis</h5>
+          <h5 class="light grey-text text-lighten-3 hide-on-small-only"></h5>
         </div>
       </li>
       <li>
-        <img src="img/photo-of-a-building-1553309.jpg" alt="">
+        <img src="https://source.unsplash.com/1600x900/?amazon,tree,night" alt="">
         <!-- random image -->
         <div class="caption left-align">
           <h2>Nous travaillons avec tous les budgets</h2>
-          <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus delectus inventore neque impedit</h5>
+          <h5 class="light grey-text text-lighten-3 hide-on-small-only"></h5>
         </div>
       </li>
       <li>
-        <img src="img/saint-basil-s-cathedral-753339.jpg" alt ="">
+        <img src="https://source.unsplash.com/1600x900/?stars" alt ="">
         <!-- random image -->
         <div class="caption right-align">
           <h2>Escapades en groupe et individuelles</h2>
-          <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ipsum molestias excepturi doloremque</h5>
+          <h5 class="light grey-text text-lighten-3 hide-on-small-only"></h5>
         </div>
       </li>
     </ul>
@@ -363,47 +363,6 @@ include "fonctions.php";
     </div>
   </section>
 
-  <!-- Section: Contact -->
-  <section id="contact" class="section section-contact scrollspy">
-    <div class="container">
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card-panel blue white-text center">
-            <i class="material-icons">email</i>
-            <h5>Contactez-nous pour réserver</h5>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium fugit tempore hic enim possimus molestias
-              quisquam impedit corrupti eveniet.</p>
-          </div>
-          <ul class="collection with-header">
-            <li class="collection-header">
-              <h4>Destinations</h4>
-            </li>
-            <li class="collection-item">VoyageExpress</li>
-            <li class="collection-item">Universite de Cergy-Pontoise</li>
-            <li class="collection-item">Cergy-Pontoise,France</li>
-          </ul>
-        </div>
-        <div class="col s12 m6">
-          <div class="card-panel grey lighten-3">
-            <h5>Please fill out this form</h5>
-            <div class="input-field">
-              <input type="text" placeholder="Name">
-            </div>
-            <div class="input-field">
-              <input type="text" placeholder="Email">
-            </div>
-            <div class="input-field">
-              <input type="text" placeholder="Phone">
-            </div>
-            <div class="input-field">
-              <textarea class="materialize-textarea" placeholder="Enter Message"></textarea>
-            </div>
-            <input type="submit" value="Submit" class="btn">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer class="section blue darken-2 white-text center">
