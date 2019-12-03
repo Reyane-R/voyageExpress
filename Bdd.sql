@@ -18,11 +18,12 @@ CREATE TYPE typemeteo AS ENUM ('ensoleille', 'nuageux', 'pluvieux', 'vent violen
 
 CREATE TABLE utilisateur
 (
+    id_utilisateur serial,
     login character varying(50) NOT NULL UNIQUE,
     password character varying(200) NOT NULL,
     type_account typeaccount NOT NULL,
     email character varying(100) NOT NULL UNIQUE,
-    CONSTRAINT utilisateur_pkey PRIMARY KEY (login)
+    CONSTRAINT utilisateur_pkey PRIMARY KEY (id_utilisateur)
 
 );
 
@@ -144,8 +145,8 @@ INSERT INTO pays (country_name, time_fly, average_price, visa_required, vaccin_r
 
 /* ENREGISTREMENTS DE LA TABLE UTILISATEUR */
 
-INSERT INTO utilisateur VALUES ('user', 'user123','utilisateur','user@mail.fr');
-INSERT INTO utilisateur VALUES ('admin', 'admin123', 'administrateur','admin@mail.fr');
+INSERT INTO utilisateur (login, password, type_account, email) VALUES ('user', 'user123','utilisateur','user@mail.fr');
+INSERT INTO utilisateur (login, password, type_account, email) VALUES ('admin', 'admin123', 'administrateur','admin@mail.fr');
 
 /* ENREGISTREMENTS DE LA TABLE HEBERGEMENT */
 
