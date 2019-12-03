@@ -125,6 +125,18 @@ CREATE TABLE price
 
 );
 
+/**********/
+
+CREATE TABLE commentaire (
+    id_commentaire serial,
+    login character varying(50) REFERENCES utilisateur (login),
+    note integer,
+    commentaire character varying(500),
+    country_name character (50) REFERENCES pays (country_name),
+    CONSTRAINT commentaire_pkey PRIMARY KEY (id_commentaire)
+)
+
+
 
 
 
